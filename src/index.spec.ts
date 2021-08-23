@@ -19,4 +19,8 @@ describe("Test add function", () => {
     expect(add("11,11,11,11,11,11")).toEqual(66);
     expect(add("111,112,999")).toEqual(1222);
   });
+  it("should perform addition on numbers separated by both commas and new line '\n'", () => {
+    expect(add("1\n2,3")).toEqual(6);
+    expect(add("11111\n2222,3")).toEqual(13336);
+  });
 });
