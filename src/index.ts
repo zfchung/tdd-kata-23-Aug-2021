@@ -7,9 +7,16 @@ export function add(input: string): number {
     }
   } else return 0;
 }
+
 function standardDelimiter(input: string) {
   const delimiter = /\n|,/;
   return stringCalculator(input, delimiter);
+}
+
+function customDelimiter(input: string) {
+  const delimiter = input.charAt(2);
+  const numberedInput = input.split("\n")[1];
+  return stringCalculator(numberedInput, delimiter);
 }
 
 function stringCalculator(input: string, delimiter: RegExp | string) {
@@ -34,10 +41,4 @@ function calculateSum(numberGroup: number[]) {
     (accumulator, currentValue) => accumulator + currentValue
   );
   return result;
-}
-
-function customDelimiter(input: string) {
-  const delimiter = input.charAt(2);
-  const numberedInput = input.split("\n")[1];
-  return stringCalculator(numberedInput, delimiter);
 }
