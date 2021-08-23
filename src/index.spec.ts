@@ -22,5 +22,6 @@ describe("Test add function", () => {
   it("should perform addition on numbers separated by both commas and new line '\n'", () => {
     expect(add("1\n2,3")).toEqual(6);
     expect(add("11111\n2222,3")).toEqual(13336);
+    expect(add("11111\n2222\n3")).toEqual(13336);
   });
 });

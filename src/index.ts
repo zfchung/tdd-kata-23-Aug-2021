@@ -1,6 +1,6 @@
 export function add(input: string): number {
   if (input) {
-    const delimiter = ",";
+    const delimiter = /\n|,/;
     return input
       .split(delimiter)
       .map(Number)
