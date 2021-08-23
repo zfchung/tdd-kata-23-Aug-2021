@@ -1,1 +1,3 @@
-export function add(input: string): number {}
+export function add(input: string): number {
+  return 0;
+}
