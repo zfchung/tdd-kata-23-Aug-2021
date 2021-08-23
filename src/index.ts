@@ -13,10 +13,19 @@ function standardDelimiter(input: string) {
 }
 
 function stringCalculator(input: string, delimiter: RegExp | string) {
-  return input
-    .split(delimiter)
-    .map(Number)
-    .reduce((accumulator, currentValue) => accumulator + currentValue);
+  const numberGroup: number[] = input.split(delimiter).map(Number);
+  const hasNegative: boolean = numberGroup.some((value) => value < 0);
+  if (hasNegative) {
+    const negativeNumberGroup: string = numberGroup
+      .filter((value) => value < 0)
+      .join(",");
+    throw "negative not allowed: " + negativeNumberGroup;
+  } else {
+    const result = numberGroup.reduce(
+      (accumulator, currentValue) => accumulator + currentValue
+    );
+    return result;
+  }
 }
 
 function customDelimiter(input: string) {

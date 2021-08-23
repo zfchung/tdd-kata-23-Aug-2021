@@ -29,4 +29,9 @@ describe("Test add function", () => {
     expect(add("//;\n11;2")).toEqual(13);
     expect(add("//@\n11@2@3")).toEqual(16);
   });
+  it("should throw exception 'negative not allowed: <negative numbers>' when there is negative number", () => {
+    expect(() => add("1,2,-3")).toThrow("negative not allowed: -3");
+    expect(() => add("-1,-2,-3")).toThrow("negative not allowed: -1,-2,-3");
+    expect(() => add("-1111,1,3")).toThrow("negative not allowed: -1111");
+  });
 });
