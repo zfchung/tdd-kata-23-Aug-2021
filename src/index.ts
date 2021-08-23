@@ -1,12 +1,7 @@
 export function add(input: string): number {
   if (input) {
     if (input.substring(0, 2) === "//") {
-      const delimiter = input.charAt(2);
-      const numberedInput = input.split("\n")[1];
-      return numberedInput
-        .split(delimiter)
-        .map(Number)
-        .reduce((accumulator, currentValue) => accumulator + currentValue);
+      return customDelimiter(input);
     } else {
       const delimiter = /\n|,/;
       return input
@@ -15,4 +10,12 @@ export function add(input: string): number {
         .reduce((accumulator, currentValue) => accumulator + currentValue);
     }
   } else return 0;
+}
+function customDelimiter(input: string) {
+  const delimiter = input.charAt(2);
+  const numberedInput = input.split("\n")[1];
+  return numberedInput
+    .split(delimiter)
+    .map(Number)
+    .reduce((accumulator, currentValue) => accumulator + currentValue);
 }
