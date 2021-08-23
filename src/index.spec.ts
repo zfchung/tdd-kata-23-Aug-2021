@@ -14,4 +14,9 @@ describe("Test add function", () => {
     expect(add("1,11")).toEqual(12);
     expect(add("14,125")).toEqual(139);
   });
+  it("should handle addition of unknown amount of numbers", () => {
+    expect(add("1,1,1,1,1,1,1,1,1,1")).toEqual(10);
+    expect(add("11,11,11,11,11,11")).toEqual(66);
+    expect(add("111,112,999")).toEqual(1222);
+  });
 });
