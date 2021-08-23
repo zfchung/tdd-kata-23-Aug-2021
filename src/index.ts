@@ -12,7 +12,7 @@ function standardDelimiter(input: string) {
   return stringCalculator(input, delimiter);
 }
 
-function stringCalculator(input: string, delimiter: RegExp) {
+function stringCalculator(input: string, delimiter: RegExp | string) {
   return input
     .split(delimiter)
     .map(Number)
@@ -22,8 +22,5 @@ function stringCalculator(input: string, delimiter: RegExp) {
 function customDelimiter(input: string) {
   const delimiter = input.charAt(2);
   const numberedInput = input.split("\n")[1];
-  return numberedInput
-    .split(delimiter)
-    .map(Number)
-    .reduce((accumulator, currentValue) => accumulator + currentValue);
+  return stringCalculator(numberedInput, delimiter);
 }
