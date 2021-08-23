@@ -21,11 +21,15 @@ function stringCalculator(input: string, delimiter: RegExp | string) {
       .join(",");
     throw "negative not allowed: " + negativeNumberGroup;
   } else {
-    const result = numberGroup.reduce(
-      (accumulator, currentValue) => accumulator + currentValue
-    );
-    return result;
+    return calculateSum(numberGroup);
   }
+}
+
+function calculateSum(numberGroup: number[]) {
+  const result = numberGroup.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
+  return result;
 }
 
 function customDelimiter(input: string) {
