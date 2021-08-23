@@ -14,7 +14,7 @@ function standardDelimiter(input: string) {
 
 function stringCalculator(input: string, delimiter: RegExp | string) {
   const numberGroup: number[] = input.split(delimiter).map(Number);
-  const hasNegative: boolean = numberGroup.some((value) => value < 0);
+  const hasNegative: boolean = checkNegative(numberGroup);
   if (hasNegative) {
     const negativeNumberGroup: string = numberGroup
       .filter((value) => value < 0)
@@ -23,6 +23,10 @@ function stringCalculator(input: string, delimiter: RegExp | string) {
   } else {
     return calculateSum(numberGroup);
   }
+}
+
+function checkNegative(numberGroup: number[]): boolean {
+  return numberGroup.some((value) => value < 0);
 }
 
 function calculateSum(numberGroup: number[]) {
