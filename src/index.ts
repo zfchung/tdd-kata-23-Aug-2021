@@ -9,6 +9,10 @@ export function add(input: string): number {
 }
 function standardDelimiter(input: string) {
   const delimiter = /\n|,/;
+  return stringCalculator(input, delimiter);
+}
+
+function stringCalculator(input: string, delimiter: RegExp) {
   return input
     .split(delimiter)
     .map(Number)
